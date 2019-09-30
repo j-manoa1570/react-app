@@ -1,18 +1,39 @@
 import React from 'react';
+import './head.css';
+
+export class RenderHeader extends React.Component {
+
+   render() {
+
+      return (
+         <button className="headerButton padding">
+            {this.props.value}
+         </button>
+      );
+   }
+
+}
 
 export default class Top extends React.Component {
+
+   myHeader(text) {
+      return (
+         <RenderHeader value={text} />
+      )
+   }
 
 
    render() {
 
       return (
-         <div>
-            <div>
-               <div class="header-flex">
-                  <p className="padding"><a href="home.html">Home</a></p>
-                  <p className="padding"><a href="projects/home.html">Projects</a></p>
-                  <p className="padding"><a href="interests/home.html">Other Interests</a></p>
-                  <p className="padding"><a href="about/home.html">About Me</a></p>
+         <div className="head">
+            <div className="headerCenter">
+               <div className="header-flex">
+                  {this.myHeader("Home")}
+                  {this.myHeader("About Me")}
+                  {this.myHeader("Projects")}
+                  {this.myHeader("Interests")}
+                  {this.myHeader("Contact")}
 
                </div>
             </div>
@@ -20,3 +41,14 @@ export default class Top extends React.Component {
       );
    }
 }
+
+export function headerElement(props) {
+
+   return (
+      <button className="" >
+         {props.value}
+      </button>
+   )
+}
+
+
